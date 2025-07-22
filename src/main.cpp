@@ -51,6 +51,7 @@ private:
         auto self(shared_from_this());
         http::async_read(socket_, buffer_, req_, [this, self](beast::error_code ec, std::size_t) {
             if (!ec) {
+                std::cout << req_;
                 do_write(handle_request(req_));
             }
         });
