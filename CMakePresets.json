@@ -1,0 +1,42 @@
+{
+    "version": 5,
+    "cmakeMinimumRequired": { "major": 3, "minor": 25 },
+
+    "configurePresets": [
+        {
+            "name": "win-msvc-debug",
+            "generator": "Visual Studio 17 2022",
+            "architecture": { "value": "x64" },
+            "binaryDir": "build/win-debug",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_CXX_STANDARD": "20"
+            }
+        },
+        {
+            "name": "macos-debug",
+            "generator": "Unix Makefiles",
+            "binaryDir": "build/macos-debug",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_CXX_STANDARD": "20"
+            }
+        },
+        {
+            "name": "linux-docker-release",
+            "generator": "Unix Makefiles",
+            "binaryDir": "build/linux-rel",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_TOOLCHAIN_FILE": "/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_CXX_STANDARD": "20"
+            }
+        }
+    ],
+
+    "buildPresets": [
+        { "name": "win-msvc-debug", "configurePreset": "win-msvc-debug" },
+        { "name": "macos-debug", "configurePreset": "macos-debug" },
+        { "name": "linux-docker-release", "configurePreset": "linux-docker-release" }
+    ]
+}
