@@ -21,22 +21,11 @@
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
                 "CMAKE_CXX_STANDARD": "20"
             }
-        },
-        {
-            "name": "linux-docker-release",
-            "generator": "Unix Makefiles",
-            "binaryDir": "build/linux-rel",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release",
-                "CMAKE_TOOLCHAIN_FILE": "/vcpkg/scripts/buildsystems/vcpkg.cmake",
-                "CMAKE_CXX_STANDARD": "20"
-            }
         }
     ],
 
     "buildPresets": [
         { "name": "win-msvc-debug", "configurePreset": "win-msvc-debug" },
-        { "name": "macos-debug", "configurePreset": "macos-debug" },
-        { "name": "linux-docker-release", "configurePreset": "linux-docker-release" }
+        { "name": "macos-debug", "configurePreset": "macos-debug" }
     ]
 }
